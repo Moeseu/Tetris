@@ -18,7 +18,7 @@ namespace Tetris
     {
         public MainWindow()
         {
-            InitializeComponent();//test
+            InitializeComponent();
         }
     }
 }
