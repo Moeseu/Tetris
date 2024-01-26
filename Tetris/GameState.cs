@@ -11,6 +11,16 @@
             {
                 currentBlock = value;
                 currentBlock.Reset();
+
+                for(int i = 0; i < 2; i++)
+                {
+                    currentBlock.Move(1, 0);
+
+                    if (!BlockFits())
+                    {
+                        currentBlock.Move(-1, 0);
+                    }
+                }
             }
         }
 
@@ -47,7 +57,7 @@
             }
         }
 
-        public void RotationBlockeCCW()
+        public void RotateBlockCCW()
         {
             CurrentBlock.RotateCCW();
 
@@ -79,7 +89,7 @@
 
         private bool IsGameOver()
         {
-            return !(GameGrid.IsRowEmpty(0) && GameGrid.IsRowFull(1));
+            return !(GameGrid.IsRowEmpty(0) || GameGrid.IsRowFull(1));// З && не працює, тому итмчасово замінив на ||, бо так щосб робиться
         }
 
         private void PlaceBlock()
